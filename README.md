@@ -12,4 +12,4 @@ This is the primary fallback channel for all communications regarding this proje
 
 ## About
 
-String reversal project by CALIFOXGLOBALPLATFORM
+Customer Support by CALIFOXGLOBALPLATFORM
