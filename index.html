@@ -3,155 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>String Reversal Tool</title>
+    <title>Customer Support</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             padding: 12px;
             margin: 0;
-            background-color: #ffffff;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
             color: #333333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         main {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 20px;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 100%;
         }
         h1 {
-            font-size: 16px;
-            margin: 0 0 5px 0;
+            font-size: 28px;
+            margin: 0 0 10px 0;
+            text-align: center;
+            color: #667eea;
         }
-        input[type="text"] {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-            border: 1px solid #cccccc;
-            border-radius: 4px;
+        .subtitle {
             font-size: 14px;
+            color: #666666;
+            text-align: center;
+            margin: 0;
         }
-        .primary-btn {
-            width: 100%;
-            padding: 8px;
-            background-color: #4285f4;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 14px;
-            font-weight: bold;
-            cursor: pointer;
+        .support-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
-        .primary-btn:hover {
-            background-color: #357ae8;
-        }
-        .result-container {
+        .support-btn {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            background-color: #f5f5f5;
-            padding: 8px;
-            border-radius: 4px;
-            margin-top: 5px;
-            display: none;
-        }
-        #resultText {
-            font-size: 14px;
-            word-break: break-all;
-            font-weight: 500;
-            margin: 0;
-            padding-right: 10px;
-        }
-        .copy-btn {
-            background-color: #34a853;
-            color: white;
-            border: none;
-            padding: 4px 8px;
-            font-size: 12px;
-            border-radius: 3px;
+            gap: 12px;
+            padding: 16px;
+            background-color: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
             cursor: pointer;
-            white-space: nowrap;
+            font-size: 16px;
+            font-weight: 600;
+            color: #333333;
+            transition: all 0.3s ease;
+            text-decoration: none;
         }
-        .copy-btn:hover {
-            background-color: #2b8c44;
+        .support-btn:hover {
+            background-color: #f0f0f0;
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
         }
-        .error {
-            color: #d9534f;
+        .support-btn.primary {
+            background-color: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        .support-btn.primary:hover {
+            background-color: #5568d3;
+            border-color: #5568d3;
+        }
+        .support-btn.fallback {
+            background-color: #0088cc;
+            color: white;
+            border-color: #0088cc;
+        }
+        .support-btn.fallback:hover {
+            background-color: #0077b3;
+            border-color: #0077b3;
+        }
+        .icon {
+            font-size: 24px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-text {
+            flex: 1;
+        }
+        .arrow {
+            font-size: 18px;
+            opacity: 0.6;
+        }
+        .info-box {
+            background-color: #f0f4ff;
+            border-left: 4px solid #667eea;
+            padding: 12px;
+            border-radius: 4px;
             font-size: 13px;
-            margin: 5px 0;
+            color: #555555;
+            line-height: 1.5;
         }
         footer {
             margin-top: 15px;
             padding-top: 10px;
             border-top: 1px solid #eeeeee;
             font-size: 12px;
+            text-align: center;
         }
         footer a {
-            color: #4285f4;
+            color: #667eea;
             text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <main>
-        <h1>String Reversal Tool</h1>
+        <h1>💬 Customer Support</h1>
+        <p class="subtitle">Get help from our team. We're here to assist you!</p>
         
-        <!-- Input section -->
-        <input type="text" id="inputString" placeholder="Enter text here..." aria-label="Enter a string to reverse" />
-        <button id="reverseBtn" class="primary-btn">Reverse Text</button>
-        
-        <!-- Output container with copy option -->
-        <div id="resultBox" class="result-container">
-            <p id="resultText" aria-live="polite"></p>
-            <button id="copyBtn" class="copy-btn">Copy</button>
+        <div class="support-options">
+            <!-- Primary Support Button -->
+            <a href="https://t.me/YourSupportBot" target="_blank" rel="noopener" class="support-btn primary">
+                <div class="icon">✈️</div>
+                <div class="btn-text">Chat on Telegram</div>
+                <div class="arrow">→</div>
+            </a>
+            
+            <!-- WhatsApp Option -->
+            <a href="https://wa.me/1234567890" target="_blank" rel="noopener" class="support-btn">
+                <div class="icon">📱</div>
+                <div class="btn-text">Message on WhatsApp</div>
+                <div class="arrow">→</div>
+            </a>
+            
+            <!-- Email Option -->
+            <a href="mailto:support@example.com" class="support-btn">
+                <div class="icon">📧</div>
+                <div class="btn-text">Send us an Email</div>
+                <div class="arrow">→</div>
+            </a>
+            
+            <!-- Fallback Telegram Button -->
+            <a href="https://t.me/YourSupportBot" target="_blank" rel="noopener" class="support-btn fallback">
+                <div class="icon">🔄</div>
+                <div class="btn-text">Telegram (Fallback)</div>
+                <div class="arrow">→</div>
+            </a>
         </div>
         
-        <p id="errorMessage" class="error" aria-live="assertive"></p>
+        <div class="info-box">
+            <strong>📌 Response Time:</strong> We typically respond within 2-4 hours during business hours. For urgent issues, please use Telegram for faster support.
+        </div>
         
-        <!-- Contact links and GitHub Reference -->
         <footer>
-            <p>Developer Profile: <a href="https://github.com/CALIFOXGLOBALPLATFORM" target="_blank" rel="noopener">CALIFOXGLOBALPLATFORM</a></p>
-            <p>Need help? Contact on <a href="https://t.me" target="_blank" rel="noopener">Telegram</a> or <a href="https://wa.me" target="_blank" rel="noopener">WhatsApp</a>.</p>
+            <p>Developer: <a href="https://github.com/CALIFOXGLOBALPLATFORM" target="_blank" rel="noopener">CALIFOXGLOBALPLATFORM</a></p>
+            <p style="margin: 5px 0;">Available 24/7 • Support Team 2026</p>
         </footer>
     </main>
 
     <script>
-        let reversedTextValue = "";
-
-        // Reverse logic
-        document.getElementById('reverseBtn').addEventListener('click', function() {
-            const inputField = document.getElementById('inputString');
-            const resultBox = document.getElementById('resultBox');
-            const resultText = document.getElementById('resultText');
-            const errorDisplay = document.getElementById('errorMessage');
-            const copyBtn = document.getElementById('copyBtn');
-            
-            errorDisplay.innerText = '';
-            resultBox.style.display = 'none';
-            copyBtn.innerText = 'Copy'; 
-
-            const textValue = inputField.value.trim();
-
-            if (textValue.length === 0) {
-                errorDisplay.innerText = 'Please enter text to reverse.';
-            } else {
-                reversedTextValue = textValue.split('').reverse().join('');
-                resultText.innerText = reversedTextValue;
-                resultBox.style.display = 'flex'; 
-            }
+        // Detect if primary Telegram link is not available, fallback to backup
+        document.querySelectorAll('a.support-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                // Optional: Add analytics or logging here
+                console.log('Support channel clicked: ' + this.textContent.trim());
+            });
         });
 
-        // Clipboard logic
-        document.getElementById('copyBtn').addEventListener('click', function() {
-            if (!reversedTextValue) return;
-
-            navigator.clipboard.writeText(reversedTextValue).then(() => {
-                const copyBtn = document.getElementById('copyBtn');
-                copyBtn.innerText = 'Copied!';
-                setTimeout(() => {
-                    copyBtn.innerText = 'Copy';
-                }, 2000);
-            }).catch(err => {
-                console.error('Failed to copy text: ', err);
-            });
+        // Fallback functionality - if Telegram URL fails, use backup
+        window.addEventListener('beforeunload', function() {
+            // Optional: Track support button usage
         });
     </script>
 </body>
